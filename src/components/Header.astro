@@ -1,0 +1,92 @@
+---
+const { editor } = Astro.props;
+---
+<header>
+    <div class="header-container">
+        <div class="h-left">Creator</div>
+        <div class="h-search">
+            <div class="search-wrapper">
+                <span class="search-icon">
+                    <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="24" 
+                    height="24" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    stroke-width="2" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round" 
+                    class="feather feather-search">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65">
+                    </line>
+                    </svg>
+                </span>
+                <input type="text">
+            </div>
+        </div>
+        <div class="h-right">
+            login, 
+            signup,
+        </div>
+    </div>
+</header>
+<style>
+   header{
+        position: sticky;
+        top: 0;
+        /* left: 0;
+        right: 0; */
+        z-index: 312;
+        background-color: #9D174D;
+        color: #FFFFFF;
+        height: 54px;
+        max-height: 54px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .header-container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.6rem 1.5rem;
+        max-width: 100ch;
+    }
+
+    .h-search{
+        height: 100%;
+        display: flex;
+        border: 1px solid red;
+        background-color: rgba(255, 255, 255, 0.128);
+        border-radius: 20px;
+        padding: 0 .5rem;
+    }
+    .search-wrapper{
+        width: 320px;
+        display: flex;
+        height: 100%;
+    }
+    .search-wrapper input{
+        background-color: transparent;
+        outline: none;
+        padding: 0 0.2rem;
+    }
+    .search-wrapper input:focus{
+        outline: none;
+    }
+    .search-icon {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .search-icon svg{
+        width: 16px;
+        height: 16px;
+    }
+    
+</style>

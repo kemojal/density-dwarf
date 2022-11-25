@@ -1,0 +1,73 @@
+---
+var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+import Editors from './Editors.astro';
+
+const { _id, title, created_at, tags, editors } = Astro.props;
+const month  = parseInt(created_at.substring(5, 7));
+const day  = parseInt(created_at.substring(8, 10));
+---
+
+<li key={_id} class="list-item">
+    <div class="title">{title}</div>
+    <div class="list-right">
+        <div class="editors">
+            <Editors editors ={editors} />
+        </div>
+    
+        <div class="date">
+            <span class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </span>
+            {`${months[month - 1]} ` + ' ' + `${day}` }
+        </div>
+
+    </div>
+</li>
+<style>
+
+    .list-item{
+        display: flex;
+        align-items: center;
+        justify-content:  space-between;
+        flex-wrap: wrap;
+        gap: 5px;
+        font-size: 13px;
+        line-height: 21px;
+        color: #282a30;
+        color: rgb(40, 42, 48);
+        padding: 5px 20px;
+
+    width: 100%;
+    border-bottom: 0.5px solid rgb(237, 240, 243);
+    cursor: pointer;
+    }
+    .title{
+        font-size: 13px;
+        line-height: 21px;
+        color: #282a30;
+        max-width: 60%;
+        overflow: hidden;
+
+    }
+    .list-right{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .date{
+        font-size: 12px;
+        color: #282a3076;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .icon{
+        width: 16px;
+    }
+    .icon svg{
+        width: 16px;
+    }
+
+</style>

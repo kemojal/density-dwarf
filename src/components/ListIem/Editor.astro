@@ -1,0 +1,45 @@
+---
+import {  editorProps } from './../interfaces/index';
+import { pickOneFromArray  } from './../../utils/math'
+
+const colors = [ '#9D174D', '#FFA940', '#8275C9', '#009E74',  ]
+const color  = pickOneFromArray(colors);
+
+const { editor } = Astro.props;
+const editorNames  = editor.name.split(' ');
+---
+<div class="editor" key={editor.id} style ={{
+    backgroundColor: color
+}}>
+    <!-- <span class="circle"/> -->
+    {editorNames[0].charAt(0) + editorNames[1].charAt(0)}
+</div>
+<style>
+    .editor{
+        border-radius: 48px;
+        height: 27px;
+        width: 27px;
+        /* padding: 0px 6px 0px 8px; */
+        min-width: auto;
+        display: flex;
+        flex-wrap: wrap;
+        -webkit-box-align: center;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        overflow: hidden;
+        border: 0.5px solid rgb(236, 239, 242);
+        background-color: #9D174D;
+        color: #FFFFFF;
+        font-size: 12px;
+        font-weight: 300;
+
+    }
+    .editor .circle{
+        width: 8px;
+        height: 8px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+</style>

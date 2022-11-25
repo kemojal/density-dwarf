@@ -1,0 +1,20 @@
+---
+import {  editorProps } from './../interfaces/index';
+import Editor from './Editor.astro';
+const { editors } = Astro.props;
+---
+
+<div class="editors">
+    {
+    editors.map( (editor: editorProps, i: number)=> (
+        <Editor editor={editor} />))
+    }
+</div>
+<style>
+    .editors{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+</style>
